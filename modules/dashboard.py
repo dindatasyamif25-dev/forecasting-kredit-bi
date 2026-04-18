@@ -287,14 +287,34 @@ def grafik_forecast_depan(ts, hasil_arima,
             marker=dict(size=7),
         ))
 
-    # Garis vertikal pemisah
-    fig.add_vline(
-        x=last_hist,
-        line_width=2,
-        line_dash="solid",
-        line_color="red",
-        annotation_text="Mulai Forecast",
-        annotation_position="top right",
+   
+# Tambah titik penghubung antara historis dan forecast
+# menggunakan shape rectangle tipis sebagai pengganti vline
+fig.add_shape(
+    type="line",
+    x0=x_hist[-1],
+    x1=x_hist[-1],
+    y0=0,
+    y1=1,
+    xref="x",
+    yref="paper",
+    line=dict(
+        color="red",
+        width=2,
+        dash="dot",
+    )
+)
+fig.add_annotation(
+    x=x_hist[-1],
+    y=1,
+    xref="x",
+    yref="paper",
+    text="▶ Mulai Forecast",
+    showarrow=False,
+    font=dict(color="red", size=12),
+    xanchor="left",
+    yanchor="bottom",
+)
     )
 
     fig.update_layout(
