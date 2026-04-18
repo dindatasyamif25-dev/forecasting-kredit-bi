@@ -77,7 +77,7 @@ st.divider()
 sumber_data = None
 
 if pakai_sample:
-    sumber_data = "/content/forecasting_kredit_bi/data/sample_data.csv"
+    sumber_data = "data/sample_data.csv"
     st.success("📊 Menggunakan data sample kredit perbankan "
                "(Jan 2015 — Des 2023)")
 elif uploaded is not None:
